@@ -1,5 +1,345 @@
-# Object file
-*.o
+#include<stdio.h>//biblioteca main ()
+#include<string.h>//biblioteca para string
+#include<stdlib.h>//biblioteca de propósito geral padrão da linguagem de programação
+#include<stdbool.h>//biblioteca boleano
+#include<conio.h>//biblioteca para impressão de cores
+#include<conio2.h>
+int main(){
 
-# Ada Library Information
-*.ali
+int numVoo, qntdAssentos[20], vlrPassagem[20], idade[30], qntdDestinos=1, vlrPassageiro[40], quantPassageiros = 0; //declaração das variáveis
+char nomePassageiro[30][30], destinos[30][30],numAssentos[20][20][20][2],escolha,assentosDisp[40][5][30], assentoPassag[30][5];
+int i, k, j;
+bool Destino=true, Tomada=true;
+
+ printf("Escalas: \n");
+ printf("projeção de escalas:  \n");
+ while (Destino);
+{
+	printf("Informe o destino: \n");
+	scanf("%s", &destinos[qntdDestinos - 1]);
+fflush(stdin);
+do
+{
+	printf("Informe a quantidade de assentos : \n");
+ 	scanf("%d", &qntdAssentos[qntdDestinos - 1]);
+fflush(stdin);
+		if (qntdAssentos[qntdDestinos- 1] < 90 || qntdAssentos[qntdDestinos- 1] > 200) printf("Só é válida uma quantidade menor que 90 e maior que 200 \n");
+ }
+while  (qntdAssentos[qntdDestinos- 1] < 90 || qntdAssentos[qntdDestinos- 1] > 200);
+do
+{
+	printf("Informe o valor da passagem : \n");
+	scanf("%d", &vlrPassagem[qntdDestinos -1 ]);
+fflush(stdin);
+		if (vlrPassagem[qntdDestinos- 1] < 0 ) printf("opcao nao valida \n");
+}
+while (vlrPassagem[qntdDestinos- 1] < 0 );
+ do
+{
+	printf("Quer adicionar outro destino? Digite 's' para sim e 'n' para nao: \n");
+	scanf("%c", &escolha );
+	fflush(stdin);
+		if(escolha!='s' && escolha != 'n') printf("Opcao invalida \n");
+}
+while (escolha!='s' && escolha != 'n');
+		if (escolha == 'n') break;
+qntdDestinos++;
+}
+char letraDoAssento = 'A';
+char numAssento[2];
+
+for(j = 0; j< qntdDestinos; j++)
+{
+for ( i=0; i< 5; i++)  
+{
+	printf("\n");
+		if (i==0) letraDoAssento= 'A';
+		if (i==1) letraDoAssento= 'B';
+		if (i==2) letraDoAssento= 'C';
+		if (i==3) letraDoAssento= 'D';
+		if (i==4) letraDoAssento= 'E';
+for ( k = 0; k < 40; k++)
+{
+itoa(k, numAssento, 10);
+coluna[i][k] = k;
+assentosDisp[j][i][k] = 'D';
+}
+}
+}
+
+	printf ("PASSAGENS AEREAS SALUMAR\n");
+do
+{
+int opcao;
+do
+{
+	printf("Digite o numero da opcao para continuar :\n");
+	printf("1- Fazer a reserva \n");
+	printf("2- Confirmar a reserva \n");
+	printf("3- Cancelar a reserva \n");
+	printf("4- Consultar o valor total \n");
+	printf("5- Mostra as informações dos assentos \n");
+	printf("O que vossa majestade deseja : \n");
+	scanf("%d", &opcao);
+		if (opcao<=0 || opcao>6) printf("opção Inválida \n");
+}
+while(opcao<=0 || opcao>6);
+switch(opcao)
+{
+case 1:
+{
+	printf ("Informe seus dados seus dados : \n");
+	printf("Informe o nome do passageiro: \n");
+	scanf("%s", &nomePassageiro[quantPassageiros]);
+fflush(stdin);
+	printf("Informe a idade do passageiro: \n");
+	scanf("%s", &idade[quantPassageiros]);
+fflush(stdin);
+while(idade[quantPassageiros] < 0 && idade[quantPassageiros] > 100)
+{
+	scanf("%d", &idade);
+fflush(stdin);
+        if(idade[quantPassageiros] < 0 && idade[quantPassageiros]>100) printf("valor invalido, por favor insira um numero entre 0 e 100:  \n");
+}
+	printf("locais disponiveis: \n ");
+for ( i = 0; i < qntdDestinos ; i++ ) 
+{
+    printf("%d.%s\n",i + 1, &destinos[i]);
+}
+do
+{
+	printf("Informe o numero do voo: \n");
+	scanf("%d", &numVoo);
+fflush(stdin);
+        if (numVoo <= 0 || numVoo > qntdDestinos ) printf("informação inválida, por favor tente novamente: \n");
+}
+while(numVoo <= 0 || numVoo > qntdDestinos);
+numVoo --; 
+
+     printf("escolha seu assento \n");
+int contador = 0 ; 
+for (i =0; i< 5; i++)  
+{
+        if (i==0) letraDoAssento= 'A';
+        if (i==1) letraDoAssento= 'B';
+ 		if (i==2) letraDoAssento= 'C';
+		if (i==3) letraDoAssento= 'D';
+		if (i==4) letraDoAssento= 'E';
+ for (k = 0; k <40; k++)
+{
+		if (assentosDisp[numVoo][i][k]== 'D') corTexto(2);
+getch()
+		if (assentosDisp[numVoo][i][k]== 'R') corTexto(4);
+getch()
+		if (assentosDisp[numVoo][i][k]== 'C') corTexto(1);
+getch()
+	printf("%c%d ",letraDoAssento, coluna[i][k]);
+corTexto(7);
+contador ++;
+}
+	printf("\n");
+}
+char assentoSelecionado[3];
+bool feedback = true ; 
+bool assentoInvalido = true; 
+do 
+{
+	printf("digite o numero do assento selecionado: \n");
+	scanf("%s",&assentoSelecionado);
+fflush(stdin);
+	printf("Assento selecionado: %c%c%c \n", assentoSelecionado[0],assentoSelecionado[1], assentoSelecionado[2]);
+  for (i =0; i< 5; i++)
+                {
+for (k = 0; k <40; k++)
+{
+		if (numAssentos[numVoo][i][k][0]!= assentoSelecionado[0]) 
+{
+	break;
+}
+
+		if (numAssentos[numVoo][i][k][1] == assentoSelecionado[1] && numAssentos[numVoo][i][k][2] == assentoSelecionado[2])  //numero do assento
+{
+                            
+		if (assentosDisp[i][k] == 'D')
+                            {
+assentosDisp[i][k] == 'R';
+feedback = true;
+assentoInvalido= false;
+itoa(numeroVoo,assentoPassag[quantPassageiros],10);
+assentoPassag[quantPassageiros][2]=assentoSelecionado[0];
+assentoPassag[quantPassageiros][3]=assentoSelecionado[1];
+assentoPassag[quantPassageiros][4]=assentoSelecionado[2];
+	break;
+}
+else
+{
+feedback = true;
+assentoInvalido = true;
+	break;
+}
+}
+}
+		if (feedback == true) break;
+
+}
+		if (assentoInvalido)
+ {
+	printf("assento invalido, por favor tente novamente :  \n");
+}
+}
+while (assentoInvalido);
+	printf("reserva feita com sucesso \n");
+valorPorPassageiro[quantPassageiros]= vlrPassagem[numVoo];
+		if(idade[quantPassageiros]<=5)  vlrPassageiro[quantPassageiros]= vlrPassagem[numVoo] * 0.5 ;
+	printf("valor da compra: %d \n", vlrPassageiro[quantPassageiros]);
+	printf("valor da passagem: %d \n", vlrPassagem[numeroVoo]);
+quantPassageiros++;
+	break;
+}
+case 2:
+{
+		if (quantPassageiros > 0)
+{
+int codDig;
+do
+{
+	printf("Digite o codigo de rastreio \n");
+	scanf("%d", &codDig);
+		if (quantPassageiros< codDig || codDig < 1) printf("codigo não existente : \n");
+}
+while(quantPassageiros < codDig || codDig < 1);
+char numVoo[2];
+numVoo[0]= assentoPassag[codDig][0];
+numVoo[1]= assentoPassag[codDig][1];
+int numVooSelecionado = atoi(numVoo);
+for (i =0; i< 5; i++)
+{
+ 
+for (k = 0; k <40; k++)
+{
+		if (numAssentos[numVooSelecionado][i][k][0]!= assentoPassag[codDig][2]) // letra do assento
+{
+	break;
+}
+
+		if (numAssentos[numVooSelecionado][i][k][1] == assentoPassag[codDig][3]
+&& numAssentos[numVooSelecionado][i][k][2] == assentoPassag[codDig][4])  //numero do assento
+{
+                            
+assentosDisp[numVooSelecionado][i][k]= 'C';
+i = 5;
+	break;
+}
+}
+}
+}
+	else printf("Passageiro não entrou");
+
+	break;
+}
+case 3:
+{
+
+		if (quantPassageiros > 0)
+{
+int codDig;
+do
+{
+	printf("Digite o codigo de rastreio : \n");
+	scanf("%d", &codDig);
+		if (quantPassageiros< codDig || codDig < 1) printf("codigo não existente : \n");
+}
+while(quantPassageiros < codDig || codDig < 1);
+char numVoo[2];
+numVoo[0]= assentoPassag[codDig][0];
+numVoo[1]= assentoPassag[codDig][1];
+int numVooSelecionado = atoi(numVoo); 
+	for (i =0; i< 5; i++)
+{
+	for (k = 0; k <40; k++)
+{
+	if (numAssentos[numVooSelecionado][i][k][0]!= assentoPassag[codDig][2]) 
+{
+	break;
+}
+
+	if (numAssentos[numVooSelecionado][i][k][1] == assentoPassag[codDig][3]
+&& numAssentos[numVooSelecionado][i][k][2] == assentoPassag[codDig][4]) 
+{
+                            
+assentosDisp[numVooSelecionado][i][k]= 'D';
+i = 5;
+	break;
+}
+}
+
+}
+}
+	else printf("Passageiro não entrou");
+
+
+	break;
+
+ }
+case 4:
+{
+int valorTotal=0;
+	for (i = 0; i < quantPassageiros; i++) valorTotal+= valorPorPassageiro[i];
+		printf("O valor total é de: %d \n",valorTotal);
+
+	break;
+}
+case 5:
+{
+		printf("locais disponiveis: \n ");
+	
+	for ( i = 0; i < qntdDestinos ; i++ )  
+{
+printf("%d.%s\n",i + 1, &destinos[i]);
+
+
+}
+do
+{
+		printf("Informe o numero do voo :  \n");
+		scanf("%d", &numeroVoo);
+	if (numVoo<0 || numVoo>qntdDestinos) printf("numero invalido \n");
+
+}
+	while(numVoo<0 || numVoo>qntdDestinos);
+numVoo--;
+		printf("status do voo %d \n", numVoo);
+int contador=0;
+	for (i =0; i< 5; i++)
+{
+	if (i==0) letraDoAssento= 'A';
+	if (i==1) letraDoAssento= 'B';
+	if (i==2) letraDoAssento= 'C';
+	if (i==3) letraDoAssento= 'D';
+	if (i==4) letraDoAssento= 'E';
+
+	for (k = 0; k <40; k++)
+{
+
+	if (assentosDisp[numVoo][i][k]== 'D') corTexto(2);// disponibiblidade do asssento
+	if (assentosDisp[numVoo][i][k]== 'R') corTexto(4);// reserva do asssento
+	if (assentosDisp[numVoo][i][k]== 'C') corTexto(1);// confirmação do asssento
+
+ 	printf("%c%d ",letraDoAssento, coluna[i][k]);
+corTexto(7);
+contador ++;
+
+}
+
+}
+
+	break;
+}
+}
+
+}
+	while(Tomada);
+    
+    return 0;
+
+}
